@@ -2,12 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpood_counter/conf/providers/counter_provider.dart';
 
-
-class HomeScreen extends ConsumerWidget{
+class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
 
   @override
-  Widget build(BuildContext context,WidgetRef ref) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final int clickCounter = ref.watch(counterProvider);
 
     return Scaffold(
@@ -40,12 +39,16 @@ class HomeScreen extends ConsumerWidget{
       ),
       body: Center(
         child: clickCounter > 0
-            ? Text("${clickCounter}",
-                style:
-                    const TextStyle(fontSize: 40, fontWeight: FontWeight.bold,color: Colors.green))
-            : Text("${clickCounter}",
-                style:
-                    const TextStyle(fontSize: 40, fontWeight: FontWeight.bold ,color:Colors.red)),
+            ? Text("$clickCounter",
+                style: const TextStyle(
+                    fontSize: 40,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.green))
+            : Text("$clickCounter",
+                style: const TextStyle(
+                    fontSize: 40,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.red)),
       ),
     );
   }
